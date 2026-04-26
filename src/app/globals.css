@@ -1,0 +1,405 @@
+@import "tailwindcss";
+
+@theme {
+  --primary-black: #020b16;
+  --primary-black-50: rgba(2, 11, 22, 0.5);
+  --primary-black-80: rgba(2, 11, 22, 0.8);
+  --primary-white: #F9F4F0;
+  --primary-white-50: rgba(255, 255, 255, 0.5);
+  --primary-white-80: rgba(255, 255, 255, 0.8);
+  --primary-accent: #c05a02;
+  --primary-accent-hover: #e97610;
+  --primary-grey: #6b6d70;
+  --secondary-accent: #0f2a4d;
+  --secondary-accent-hover: #194d8f;
+  --secondary-red: #b5291c;
+  --secondary-green: #15b12d;
+  --secondary-lightGrey: #e1e7ee;
+  --secondary-lightBlue: #5e8dcc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  min-height: 100vh;
+
+}
+body {
+  background: var(--primary-white);
+  color: var(--primary-black);
+  font-family: var(--font-roboto), sans-serif;
+  font-size: clamp(0.875rem, 1.4vw, 1rem);
+}
+
+
+
+/* @layer base {
+  body {
+    @apply bg-primary_white text-primary_black;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+} */
+
+@layer utilities {
+  /*  Fluid типографика */
+  /*60-32 - текст на главной стр*/
+  .text-title-3xlarge {
+    font-size: clamp(1.5rem, 3.85vw, 3.75rem);
+  }
+  .text-title-3xlarge-semiBold {
+    font-size: clamp(1.5rem, 3.85vw, 3.75rem);
+    font-weight: 600;
+  }
+
+  /*48-24 подзаголовки в секшн*/
+  .text-title-2xlarge {
+    font-size: clamp(1.5rem, 4.5vw, 3rem);
+  }
+  .text-title-2xlarge-semiBold {
+   font-size: clamp(1.5rem, 4.5vw, 3rem);
+    font-weight: 600;
+  }
+
+    /*32-16 - подзаголовки карточек услуг и роектов*/
+  .text-title-xlarge {
+    font-size: clamp(1rem, 3vw, 2rem);
+  }
+  .text-title-xlarge-semiBold {
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-weight: 600;
+  }
+
+  /*24-16*/
+  .text-title-large {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+  .text-title-large-semiBold {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 600;
+  }
+
+   /*18-16*/
+  .text-title-medium {
+    font-size: clamp(1rem, 1.75vw, 1.125rem);
+  }
+  .text-title-medium-semiBold {
+    font-size: clamp(1rem, 1.75vw, 1.125rem);
+    font-weight: 600;
+  }
+
+   /*16-16*/
+  .text-title-small {
+    font-size: clamp(1rem, 1.5vw, 1rem);
+  }
+  .text-title-small-semiBold {
+    font-size: clamp(1rem, 1.5vw, 1rem);
+    font-weight: 600;
+  }
+
+  /*  Body */
+  .text-body-medium {
+    font-size: clamp(0.875rem, 1.75vw, 1rem);
+  }
+  .text-body-small {
+    font-size: clamp(0.875rem, 1.5vw, 0.875rem);
+  }
+
+  /*  Fluid отступы  */
+  .p-fluid-xs {
+    padding: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .p-fluid-small {
+    padding: clamp(0.25rem, 1vw, 0.5rem);
+  } /*4px*/
+  .p-fluid-medium {
+    padding: clamp(0.5rem, 1.5vw, 1rem);
+  } /*8px*/
+  .p-fluid-large {
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+  } /*12px*/
+  .p-fluid-xlarge {
+    padding: clamp(1rem, 2.5vw, 2rem);
+  } /*16px*/
+  .p-fluid-2xlarge {
+    padding: clamp(1.5rem, 3vw, 3rem);
+  } /*24px*/
+  .p-fluid-3xlarge {
+    padding: clamp(3rem, 4vw, 4rem);
+  } /*48px*/
+
+  /* padding-top */
+  .pt-fluid-xs {
+    padding-top: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .pt-fluid-small {
+    padding-top: clamp(0.25rem, 1vw, 0.5rem);
+  }
+  .pt-fluid-medium {
+    padding-top: clamp(0.5rem, 1.5vw, 1rem);
+  }
+  .pt-fluid-large {
+    padding-top: clamp(0.75rem, 2vw, 1.5rem);
+  }
+  .pt-fluid-xlarge {
+    padding-top: clamp(1rem, 2.5vw, 2rem);
+  }
+  .pt-fluid-2xlarge {
+    padding-top: clamp(1.5rem, 3vw, 3rem);
+  }
+  .pt-fluid-3xlarge {
+    padding-top: clamp(3rem, 4vw, 4rem);
+  }
+  .pt-fluid-4xlarge {
+    padding-top: clamp(4.75rem, 5vw, 6rem);
+  }
+
+  /* padding-right */
+  .pr-fluid-xs {
+    padding-right: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .pr-fluid-small {
+    padding-right: clamp(0.25rem, 1vw, 0.5rem);
+  }
+  .pr-fluid-medium {
+    padding-right: clamp(0.5rem, 1.5vw, 1rem);
+  }
+  .pr-fluid-large {
+    padding-right: clamp(0.75rem, 2vw, 1.5rem);
+  }
+  .pr-fluid-xlarge {
+    padding-right: clamp(1rem, 2.5vw, 2rem);
+  }
+  .pr-fluid-2xlarge {
+    padding-right: clamp(1.5rem, 3vw, 3rem);
+  }
+  .pr-fluid-3xlarge {
+    padding-right: clamp(3rem, 4vw, 4rem);
+  }
+
+  /* padding-bottom */
+  .pb-fluid-xs {
+    padding-bottom: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .pb-fluid-small {
+    padding-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  }
+  .pb-fluid-medium {
+    padding-bottom: clamp(0.5rem, 1.5vw, 1rem);
+  }
+  .pb-fluid-large {
+    padding-bottom: clamp(0.75rem, 2vw, 1.5rem);
+  }
+  .pb-fluid-xlarge {
+    padding-bottom: clamp(1rem, 2.5vw, 2rem);
+  }
+  .pb-fluid-2xlarge {
+    padding-bottom: clamp(1.5rem, 3vw, 3rem);
+  }
+  .pb-fluid-3xlarge {
+    padding-bottom: clamp(3rem, 4vw, 4rem);
+  }
+  .pb-fluid-4xlarge {
+    padding-bottom: clamp(4.75rem, 5vw, 6rem);
+  }
+
+  /* padding-left */
+  .pl-fluid-xs {
+    padding-left: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .pl-fluid-small {
+    padding-left: clamp(0.25rem, 1vw, 0.5rem);
+  }
+  .pl-fluid-medium {
+    padding-left: clamp(0.5rem, 1.5vw, 1rem);
+  }
+  .pl-fluid-large {
+    padding-left: clamp(0.75rem, 2vw, 1.5rem);
+  }
+  .pl-fluid-xlarge {
+    padding-left: clamp(1rem, 2.5vw, 2rem);
+  }
+  .pl-fluid-2xlarge {
+    padding-left: clamp(1.5rem, 3vw, 3rem);
+  }
+  .pl-fluid-3xlarge {
+    padding-left: clamp(3rem, 4vw, 4rem);
+  }
+  .pl-fluid-4xlarge {
+    padding-left: clamp(4.75rem, 5vw, 6rem);
+  }
+
+  /* padding-x (left + right) */
+  .px-fluid-xs {
+    padding-inline: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .px-fluid-small {
+    padding-inline: clamp(0.25rem, 1vw, 0.5rem);
+  }
+  .px-fluid-medium {
+    padding-inline: clamp(0.5rem, 1.5vw, 1rem);
+  }
+  .px-fluid-large {
+    padding-inline: clamp(0.75rem, 2vw, 1.5rem);
+  }
+  .px-fluid-xlarge {
+    padding-inline: clamp(1rem, 2.5vw, 2rem);
+  }
+  .px-fluid-2xlarge {
+    padding-inline: clamp(1.5rem, 3vw, 3rem);
+  }
+  .px-fluid-3xlarge {
+    padding-inline: clamp(3rem, 4vw, 4rem);
+  }
+  .px-fluid-4xlarge {
+    padding-inline: clamp(4.75rem, 5vw, 6rem);
+  }
+
+  /* padding-y (top + bottom) */
+  .py-fluid-xs {
+    padding-block: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .py-fluid-small {
+    padding-block: clamp(0.25rem, 1vw, 0.5rem);
+  }
+  .py-fluid-medium {
+    padding-block: clamp(0.5rem, 1.5vw, 1rem);
+  }
+  .py-fluid-large {
+    padding-block: clamp(0.75rem, 2vw, 1.5rem);
+  }
+  .py-fluid-xlarge {
+    padding-block: clamp(1rem, 2.5vw, 2rem);
+  }
+  .py-fluid-2xlarge {
+    padding-block: clamp(1.5rem, 3vw, 3rem);
+  }
+  .py-fluid-3xlarge {
+    padding-block: clamp(3rem, 4vw, 4rem);
+  }
+  .py-fluid-4xlarge {
+    padding-block: clamp(4.75rem, 5vw, 6rem);
+  }
+
+  /* Fluid margin-y (top + bottom) */
+  .mb-fluid-xs {
+    margin-block: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .mb-fluid-small {
+    margin-block: clamp(0.25rem, 1vw, 0.5rem); /* 4px → 8px */
+  }
+  .mb-fluid-medium {
+    margin-block: clamp(0.5rem, 1.5vw, 1rem); /* 8px → 16px */
+  }
+  .mb-fluid-large {
+    margin-block: clamp(0.75rem, 2vw, 1.5rem); /* 12px → 24px */
+  }
+  .mb-fluid-xlarge {
+    margin-block: clamp(1rem, 2.5vw, 2rem); /* 16px → 32px */
+  }
+  .mb-fluid-2xlarge {
+    margin-block: clamp(1.5rem, 3vw, 3rem); /* 24px → 48px */
+  }
+  .mb-fluid-3xlarge {
+    margin-block: clamp(2rem, 4vw, 5rem); /* 32px → 80px */
+  }
+  .mb-fluid-4xlarge {
+    margin-block: clamp(3rem, 5vw, 10rem); /* 48px → 160px*/
+  }
+
+  /*m top*/
+  .mt-fluid-xs {
+    margin-top: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .mt-fluid-small {
+    margin-top: clamp(0.25rem, 1vw, 0.5rem); /* 4px → 8px */
+  }
+  .mt-fluid-medium {
+    margin-top: clamp(0.5rem, 1.5vw, 1rem); /* 8px → 16px */
+  }
+  .mt-fluid-large {
+    margin-top: clamp(0.75rem, 2vw, 1.5rem); /* 12px → 24px */
+  }
+  .mt-fluid-xlarge {
+    margin-top: clamp(1rem, 2.5vw, 2rem); /* 16px → 32px */
+  }
+  .mt-fluid-2xlarge {
+    margin-top: clamp(1.5rem, 3vw, 3rem); /* 24px → 48px */
+  }
+  .mt-fluid-3xlarge {
+    margin-top: clamp(2rem, 4vw, 5rem); /* 32px → 80px */
+  }
+  .mt-fluid-4xlarge {
+    margin-top: clamp(3rem, 6.5vw, 10rem); /* 48px → 160px*/
+  }
+
+  /*  Fluid gap  */
+  .gap-fluid-xs {
+    gap: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .gap-fluid-small {
+    gap: clamp(0.25rem, 1vw, 0.5rem);
+  } /*4px*/
+  .gap-fluid-medium {
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+  } /*8px*/
+  .gap-fluid-large {
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+  } /*12px*/
+  .gap-fluid-xlarge {
+    gap: clamp(1rem, 2.5vw, 2rem);
+  } /*16px*/
+  .gap-fluid-2xlarge {
+    gap: clamp(1.5rem, 3vw, 3rem);
+  } /*24px*/
+  .gap-fluid-3xlarge {
+    gap: clamp(3rem, 4vw, 4rem);
+  } /*48px*/
+  .gap-fluid-4xlarge {
+    gap: clamp(3rem, 5vw, 10rem); /* 48px → 160px*/
+  }
+  .gap-fluid-5xlarge {
+    gap: clamp(4rem, 13vw, 15rem); /* 48px → 160px*/
+  }
+
+  /*  Fluid border-radius  */
+  .rounded-fluid-xsm {
+    border-radius: min(0.25rem, max(0.125rem, 1vw));
+  }
+  .rounded-fluid-sm {
+    border-radius: clamp(0.25rem, 0.5vw, 0.5rem);
+  }
+  .rounded-fluid-md {
+    border-radius: clamp(0.5rem, 1vw, 0.75rem);
+  }
+  .rounded-fluid-lg {
+    border-radius: clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  .transition {
+    @apply duration-500 ease-in-out;
+  }
+
+
+
+  /*
+  .element-hover:hover {
+    @apply text-[var(--primary-blue-hover)];
+  } */
+
+  @media (min-width: 768px) {
+    .grid-cols-fluid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .grid-cols-fluid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
