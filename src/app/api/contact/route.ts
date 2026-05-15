@@ -17,6 +17,14 @@ export async function POST(req: Request) {
       );
     }
 
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+      return NextResponse.json(
+        { error: "Введите корректный номер телефона" },
+        { status: 400 }
+      );
+    }
+
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
     const supportEmail = process.env.SUPPORT_EMAIL;

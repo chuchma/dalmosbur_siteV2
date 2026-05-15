@@ -70,6 +70,11 @@ export default function Form({
 
       if (!values[field.name] || String(values[field.name]).trim() === '') {
         newErrors[field.name] = 'Заполните это поле'
+      } else if (field.type === 'tel') {
+        const digitsOnly = String(values[field.name]).replace(/\D/g, '')
+        if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+          newErrors[field.name] = 'Введите корректный номер телефона'
+        }
       }
     })
 
