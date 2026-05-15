@@ -5,7 +5,6 @@ import { TEXTS } from "@/data/data";
 import IconText from "@/components/UI/iconText";
 import { Insta, Location, Mail, Phone, Telegram, YouTube } from "@/components/UI/icons";
 import ModalTrigger from "../UI/modal/modalTrigger";
-import ResumeForm from "../UI/form/resumeForm";
 import OrderForm from "../UI/form/orderForm";
 
 export default function Footer() {
